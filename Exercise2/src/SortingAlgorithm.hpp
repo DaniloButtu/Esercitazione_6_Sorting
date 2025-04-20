@@ -55,7 +55,7 @@ void HeapSortCustom(vector<T>& v)
         {
             unsigned int p = (i-1)/2; //I compute the index of the father node related to i (i is the sx or dx son of p)
 
-            while(p >= 0 && v[p] < v[i])//To compare each node up to the root
+            while(v[p] < v[i])//To compare each node up to the root
             {
                 //swap:
                 const T tmp = v[i];
