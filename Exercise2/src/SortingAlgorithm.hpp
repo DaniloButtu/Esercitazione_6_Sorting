@@ -9,6 +9,11 @@ using namespace std;
 namespace SortLibrary {
 
 template<typename T>
+concept Sortable = requires(T& t) {
+    {t < t} -> std::convertible_to<bool>;
+};
+
+template<Sortable T>
 void BubbleSort(vector<T>& v)
 {
     const unsigned int n = v.size();
@@ -29,7 +34,7 @@ void BubbleSort(vector<T>& v)
 
 
 
-template<typename T>
+template<Sortable T>
 void HeapSort(vector<T>& v)
 {
     const unsigned int n = v.size();
@@ -43,7 +48,7 @@ void HeapSort(vector<T>& v)
 
 
 
-template<typename T>
+template<Sortable T>
 void HeapSortCustom(vector<T>& v)
 {   
     unsigned int n = v.size();
